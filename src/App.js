@@ -1,23 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState, useEffect } from "react";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 function App() {
+  const [data, setData] = useState([]); // We use brackets to apply to all kinds of data or array of an objects.
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <h1> "If you Think Education is expensive then try Bootcamp" </h1>
+      <Footer />
     </div>
   );
 }
