@@ -1,0 +1,7 @@
+.signup-main {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(228, 243, 243);
+  height: 1000px;
+  width: auto;
+}

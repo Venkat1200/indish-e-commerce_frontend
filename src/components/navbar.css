@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Eczar:wght@800&display=swap");
+
+.nav-container {
+  width: auto;
+}
+.navbar {
+  display: inline-flex;
+  justify-content: space-around;
+  width: 100%;
+  background-color: #d7a709;
+}
+
+.nav-elements ul {
+  display: inline-flex;
+  justify-content: space-between;
+  list-style-type: none;
+}
+
+.nav-elements ul li:not(:last-child) {
+  margin-right: 60px;
+}
+.nav-elements ul li {
+  cursor: pointer;
+}
+
+.nav-elements ul a {
+  padding: 0px 75px 0px 75px;
+  font-size: 16px;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.nav-elements ul a.active {
+  color: #c42727;
+  font-weight: 500;
+  position: relative;
+}
+
+.Login {
+  margin: 5px;
+}
+.Login:hover {
+  background-color: green;
+}
+
+.Signup:hover {
+  background-color: rgb(100, 128, 0);
+}
+
+.Logout:hover {
+  background-color: red;
+}
+
+h3 {
+  font-family: "Eczar", serif;
+}
+
+.upload-button {
+  border-color: black;
+  margin: 5px;
+}
+
+.upload-button:hover {
+  background-color: rgb(100, 128, 0);
+}

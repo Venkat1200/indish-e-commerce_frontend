@@ -1,29 +1,77 @@
-import "./App.css";
 import { useState, useEffect } from "react";
+import Signup from "./components/Signup";
+import Upload from "./components/Upload";
+import Home from "./components/Home";
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import Homepage from "./components/Homepage";
+import { Routes, Route, Navigate } from "react-router-dom";
+
+import Login from "./components/Login";
 
 function App() {
-  const [data, setData] = useState([]); // We use brackets to apply to all kinds of data or array of an objects.
+  // const [articles, setArticles] = useState([]); // We use brackets to apply to all kinds of data or array of an objects.
+  const [signal, setSignal] = useState(false);
 
-  const getData = async () => {
-    const res = await fetch("http://localhost:3000/articles");
-    const data = await res.json();
-    console.log("data", data);
-    setData(data);
-  };
+  const [user, setUser] = useState(
+    JSON.parse(localStorage.getItem("user")) || null
+  );
+
+  const [selectedCategory, setSelectedCategory] = useState("");
+
+  console.log("SELECTED CATEGORY", selectedCategory);
 
   useEffect(() => {
-    getData();
-  }, []);
+    if (!user) {
+      setUser(JSON.parse(localStorage.getItem("user")));
+    }
+  }, [user]);
 
   return (
     <div className="App">
-      <Navbar />
-      <h1> "Pora Fulka" </h1>
-      <Homepage data={data} />
-      <Footer />
+      <Navbar
+        user={user}
+        setUser={setUser}
+        setSelectedCategory={setSelectedCategory}
+      />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            user ? (
+              <Home
+                user={user}
+                category={selectedCategory}
+                selectedCategory={selectedCategory}
+              />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
+        <Route
+          path="/login"
+          element={!user ? <Login setUser={setUser} /> : <Navigate to="/" />}
+        />
+        <Route
+          path="/signup"
+          element={!user ? <Signup setUser={setUser} /> : <Navigate to="/" />}
+        />
+
+        <Route
+          path="/upload"
+          element={
+            user ? (
+              <Upload
+                setSignal={setSignal}
+                signal={signal}
+                setUser={setUser}
+                user={user}
+              />
+            ) : (
+              <Navigate to="/Login" />
+            )
+          }
+        />
+      </Routes>
     </div>
   );
 }
