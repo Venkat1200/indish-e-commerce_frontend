@@ -5,11 +5,15 @@ import "./Home.css";
 export default function Home({ user, selectedCategory, category }) {
   const [allArticles, setAllArticles] = useState([]);
   const [filteredArticles, setFilteredArticles] = useState([]);
+  console.log("FA", filteredArticles);
+
+  const url1 = "https://indish-e-commerce.onrender.com";
+  const url2 = "http://localhost:3000";
 
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await fetch("http://localhost:3000/articles", {
+        const res = await fetch(url1 + "/articles", {
           headers: {
             Authorization: `Bearer ${user.token}`,
           },

@@ -8,6 +8,9 @@ export default function Upload({ setSignal, signal, user }) {
   const [price, setPrice] = useState(null);
   const [category, setCategory] = useState("");
 
+  const url1 = "https://indish-e-commerce.onrender.com";
+  const url2 = "http://localhost:3000";
+
   const resetForm = () => {
     setImage(null);
     setArticleTitle("");
@@ -27,7 +30,7 @@ export default function Upload({ setSignal, signal, user }) {
       formData.append("price", price);
       formData.append("category", category);
 
-      let res = await fetch("http://localhost:3000/articles", {
+      let res = await fetch(url1 + "/articles", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${user.token}`,

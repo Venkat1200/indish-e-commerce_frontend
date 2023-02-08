@@ -7,12 +7,15 @@ export default function Login({ setUser }) {
   const [error, setError] = useState("");
   const [isloading, setIsLoading] = useState(false);
 
+  const url1 = "https://indish-e-commerce.onrender.com";
+  const url2 = "http://localhost:3000";
+
   const submitHandler = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     setError(null);
 
-    const response = await fetch("http://localhost:3000/Users/login", {
+    const response = await fetch(url1 + "/Users/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

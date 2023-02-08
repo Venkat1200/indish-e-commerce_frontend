@@ -9,12 +9,15 @@ export default function Signup({ setUser }) {
   const [error, setError] = useState("");
   const [isloading, setIsLoading] = useState(false);
 
+  const url1 = "https://indish-e-commerce.onrender.com";
+  const url2 = "http://localhost:3000";
+
   const submitHandler = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     setError(null);
 
-    const response = await fetch("http://localhost:3000/users/signup", {
+    const response = await fetch(url1 + "/users/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -36,7 +39,7 @@ export default function Signup({ setUser }) {
     }
   };
 
-  return (
+  return !isloading ? (
     <div className="containerr">
       <form className="form-login" onSubmit={submitHandler}>
         <h3 className="log-h3">sign up</h3>
@@ -72,5 +75,7 @@ export default function Signup({ setUser }) {
         {error && <div className="error">{error}</div>}
       </form>
     </div>
+  ) : (
+    "loading..."
   );
 }
