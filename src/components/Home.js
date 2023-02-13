@@ -13,7 +13,7 @@ export default function Home({ user, selectedCategory, category }) {
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await fetch(url1 + "/articles", {
+        const res = await fetch(url2 + "/articles", {
           headers: {
             Authorization: `Bearer ${user.token}`,
           },
@@ -47,25 +47,27 @@ export default function Home({ user, selectedCategory, category }) {
   }, [category, allArticles]);
 
   return (
-    <div class="main-articles">
-      {allArticles.length ? (
-        filteredArticles?.map((article) => (
-          <div className="articles" key={article._id}>
-            <div className="article-container">
-              <div class="container">
-                <div className="article-title">
-                  <h2 className="article.h2">{article.articleTitle}</h2>
+    <div className="home-container">
+      <div class="main-articles">
+        {allArticles.length ? (
+          filteredArticles?.map((article) => (
+            <div className="articles" key={article._id}>
+              <div className="article-container">
+                <div class="container">
+                  <div className="article-title">
+                    <h2 className="article.h2">{article.articleTitle}</h2>
+                  </div>
+                  <img className="article-photo" src={article.url} />
+                  <p className="article.p">$ {article.price}.00</p>
+                  <button className="addcart"> ADD TO CART</button>
                 </div>
-                <img className="article-photo" src={article.url} />
-                <p className="article.p">$ {article.price}.00</p>
-                <button className="addcart"> ADD TO CART</button>
               </div>
             </div>
-          </div>
-        ))
-      ) : (
-        <h1>No articles found </h1>
-      )}
+          ))
+        ) : (
+          <h1>No articles found </h1>
+        )}
+      </div>
     </div>
   );
 }

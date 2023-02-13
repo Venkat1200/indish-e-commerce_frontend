@@ -30,7 +30,7 @@ export default function Upload({ setSignal, signal, user }) {
       formData.append("price", price);
       formData.append("category", category);
 
-      let res = await fetch(url1 + "/articles", {
+      let res = await fetch(url2 + "/articles", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${user.token}`,

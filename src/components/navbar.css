@@ -6,10 +6,25 @@
   width: auto;
 }
 .navbar {
-  display: inline-flex;
+  display: flex;
+  flex-direction: row;
   justify-content: space-around;
+  align-items: center;
   width: 100%;
   background-color: #d7a709;
+}
+
+.cat-buttons {
+  font-size: 10px;
+  margin: 15px;
+}
+
+.cat-buttons:hover {
+  background: black;
+  box-shadow: 0 0 30px 5px rgba(234, 224, 227, 0.815);
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
 }
 
 .nav-elements ul {

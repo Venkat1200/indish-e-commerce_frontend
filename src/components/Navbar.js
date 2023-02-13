@@ -18,15 +18,27 @@ export default function Navbar({ user, setUser, setSelectedCategory }) {
 
         <div className="nav-elements">
           <ul>
-            <li onClick={() => setSelectedCategory("Decor")}>Decor</li>
-            <li onClick={() => setSelectedCategory("paintings")}>Paintings</li>
-            <li onClick={() => setSelectedCategory("Kitchen and Dining")}>
-              Kitchen and Dining
-            </li>
-            <li onClick={() => setSelectedCategory("Jewellery")}>Jewellery</li>
+            <button className="cat-buttons">
+              <li onClick={() => setSelectedCategory("Decor")}>Decor</li>{" "}
+            </button>
+            <button className="cat-buttons">
+              <li onClick={() => setSelectedCategory("paintings")}>
+                Paintings
+              </li>
+            </button>
+            <button className="cat-buttons">
+              <li onClick={() => setSelectedCategory("Kitchen and Dining")}>
+                Kitchen and Dining
+              </li>{" "}
+            </button>
+            <button className="cat-buttons">
+              <li onClick={() => setSelectedCategory("Jewellery")}>
+                Jewellery
+              </li>{" "}
+            </button>
             <li>
               <Link to="/upload">
-                <button className="upload-button">Upload</button>
+                <button className="cat-buttons">Upload</button>
               </Link>
             </li>
           </ul>

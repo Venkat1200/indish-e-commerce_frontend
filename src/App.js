@@ -4,6 +4,7 @@ import Upload from "./components/Upload";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import { Routes, Route, Navigate } from "react-router-dom";
+import Footer from "./components/Footer";
 
 import Login from "./components/Login";
 
@@ -32,6 +33,7 @@ function App() {
         setUser={setUser}
         setSelectedCategory={setSelectedCategory}
       />
+
       <Routes>
         <Route
           path="/"
@@ -72,6 +74,7 @@ function App() {
           }
         />
       </Routes>
+      <Footer />
     </div>
   );
 }

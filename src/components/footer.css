@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px 20px 20px;
+  height: 70px;
+  width: 100%;
+  background-color: #d7a709;
+  position: fixed;
+  bottom: 0;
+}
+
+.footer-logos {
+  height: 50px;
+  width: auto;
+}
+
+.footer-text {
+  padding-left: 50px;
+}
