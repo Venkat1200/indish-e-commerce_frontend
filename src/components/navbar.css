@@ -28,7 +28,7 @@
 }
 
 .nav-elements ul {
-  display: inline-flex;
+  display: inline-flex;git 
   justify-content: space-between;
   list-style-type: none;
 }
