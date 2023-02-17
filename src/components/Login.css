@@ -7,21 +7,45 @@
   font-family: Raleway, sans-serif;
 }
 
-body {
+/* body {
   background: linear-gradient(90deg, #d5d5db, #dee1de);
+} */
+
+.body {
+  background-color: hsl(218, 41%, 15%);
+  background-image: radial-gradient(
+      650px circle at 0% 0%,
+      hsl(218, 41%, 35%) 15%,
+      hsl(218, 41%, 30%) 35%,
+      hsl(218, 41%, 20%) 75%,
+      hsl(218, 41%, 19%) 80%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1250px circle at 100% 100%,
+      hsl(218, 41%, 45%) 15%,
+      hsl(218, 41%, 30%) 35%,
+      hsl(218, 41%, 20%) 75%,
+      hsl(218, 41%, 19%) 80%,
+      transparent 100%
+    );
 }
 
+.emailnput {
+  font-weight: bold;
+}
 .containerr {
   display: flex;
   align-items: center;
   justify-content: center;
+  align-content: center;
   margin: 0 auto;
   height: 500px;
   width: 350px;
   padding: 50px;
   margin-top: 80px;
 
-  background-color: rgba(241, 235, 35, 0.557);
+  background-color: rgb(203, 156, 1);
   border-radius: 10%;
 }
 

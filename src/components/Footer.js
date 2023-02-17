@@ -1,4 +1,6 @@
 import paypal from "./images/paypal.png";
+import mastercard from "./images/mastercard.png";
+
 import { Link } from "react-router-dom";
 
 import "./footer.css";
@@ -18,7 +20,10 @@ export default function Footer() {
               copyright © INDISH all rights reserved. "INDISH" is a registered
               brandname of India
             </h4>
-            <img className="footer-logos" src={paypal} />
+            <div className="nav-images">
+              <img className="footer-logos" src={paypal} />
+              <img className="footer-logos1" src={mastercard} />
+            </div>
           </div>
         </center>
       </div>

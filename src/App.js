@@ -7,6 +7,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Footer from "./components/Footer";
 
 import Login from "./components/Login";
+import Searchbar from "./components/Searchbar";
 
 function App() {
   // const [articles, setArticles] = useState([]); // We use brackets to apply to all kinds of data or array of an objects.
@@ -33,7 +34,7 @@ function App() {
         setUser={setUser}
         setSelectedCategory={setSelectedCategory}
       />
-
+      <Searchbar user={user} setUser={setUser} />
       <Routes>
         <Route
           path="/"

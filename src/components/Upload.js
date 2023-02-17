@@ -71,7 +71,9 @@ export default function Upload({ setSignal, signal, user }) {
             <form className="form-container" onSubmit={onSubmit}>
               <h1>Upload your Product</h1>
               <div className="form-group">
-                <label htmlFor="desc">Title : </label>
+                <label className="labels" htmlFor="desc">
+                  Title :{" "}
+                </label>
                 <input
                   onChange={(e) => setArticleTitle(e.target.value)}
                   type="text"
@@ -84,7 +86,9 @@ export default function Upload({ setSignal, signal, user }) {
               </div>
 
               <div className="form-group">
-                <label htmlFor="desc">Price : </label>
+                <label className="labels" htmlFor="desc">
+                  Price :{" "}
+                </label>
                 <input
                   onChange={(e) => setPrice(e.target.value)}
                   type="text"
@@ -97,7 +101,9 @@ export default function Upload({ setSignal, signal, user }) {
               </div>
 
               <div className="form-group">
-                <label htmlFor="desc">Category : </label>
+                <label className="labels" htmlFor="desc">
+                  Category :{" "}
+                </label>
 
                 <select
                   className="emailnput"

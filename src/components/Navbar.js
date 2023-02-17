@@ -47,7 +47,7 @@ export default function Navbar({ user, setUser, setSelectedCategory }) {
           <nav signlogin>
             {user !== null && (
               <div>
-                <span> {user.email}</span>
+                <span className="email-span"> {user.email}</span>
                 <button className="Logout" onClick={handleClick}>
                   Log out
                 </button>
