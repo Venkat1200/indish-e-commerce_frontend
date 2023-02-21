@@ -15,7 +15,7 @@ export default function Login({ setUser }) {
     setIsLoading(true);
     setError(null);
 
-    const response = await fetch(url2 + "/Users/login", {
+    const response = await fetch(url1 + "/Users/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -38,34 +38,45 @@ export default function Login({ setUser }) {
   };
 
   return (
-    <div className="containerr">
-      <form className="form-login" onSubmit={submitHandler}>
-        <h3 className="log-h3">Log in</h3>
-        <div>
-          <input
-            className="emailnput"
-            type="email"
-            placeholder="email"
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-          />
-        </div>
+    <div className="wrapper">
+      <div className="box">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div className="containerr">
+        <form className="form-login" onSubmit={submitHandler}>
+          <h3 className="log-h3">Log in</h3>
+          <div>
+            <input
+              className="emailnput"
+              type="email"
+              placeholder="email"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+            />
+          </div>
 
-        <div>
-          <input
-            className="emailnput"
-            type="password"
-            placeholder="password"
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-          />
-        </div>
+          <div>
+            <input
+              className="emailnput"
+              type="password"
+              placeholder="password"
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+            />
+          </div>
 
-        <button className="log-btn" log-btn>
-          Log in
-        </button>
-        {error && <div className="error">{error}</div>}
-      </form>
+          <button className="log-btn" log-btn>
+            Log in
+          </button>
+          {error && <div className="error">{error}</div>}
+        </form>
+      </div>
     </div>
   );
 }

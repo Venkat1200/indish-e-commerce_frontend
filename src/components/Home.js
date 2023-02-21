@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import React from "react";
 import "./Home.css";
+import Searchbar from "./Searchbar";
+import Footer from "./Footer";
 
 export default function Home({ user, selectedCategory, category }) {
   const [allArticles, setAllArticles] = useState([]);
@@ -16,7 +18,7 @@ export default function Home({ user, selectedCategory, category }) {
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await fetch(url2 + "/articles", {
+        const res = await fetch(url1 + "/articles", {
           headers: {
             Authorization: `Bearer ${user.token}`,
           },
@@ -30,7 +32,7 @@ export default function Home({ user, selectedCategory, category }) {
       }
     };
     getData();
-  }, [user]);
+  }, []);
 
   const filterByCategory = (filteredData) => {
     if (!category) {
@@ -51,6 +53,7 @@ export default function Home({ user, selectedCategory, category }) {
 
   return (
     <div className="home-container">
+      <Searchbar allArticles={allArticles} />
       <div className="article-card">
         {allArticles.length ? (
           filteredArticles?.map((article) => (
@@ -73,6 +76,7 @@ export default function Home({ user, selectedCategory, category }) {
           <h1>No articles found </h1>
         )}
       </div>
+      <Footer />
     </div>
   );
 }

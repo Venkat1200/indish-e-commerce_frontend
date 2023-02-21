@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Footer from "./components/Footer";
+import "./app.css";
 
 import Login from "./components/Login";
 import Searchbar from "./components/Searchbar";
@@ -25,7 +26,7 @@ function App() {
     if (!user) {
       setUser(JSON.parse(localStorage.getItem("user")));
     }
-  }, [user]);
+  }, []);
 
   return (
     <div className="App">
@@ -34,7 +35,12 @@ function App() {
         setUser={setUser}
         setSelectedCategory={setSelectedCategory}
       />
-      <Searchbar user={user} setUser={setUser} />
+      {/* <Searchbar user={user} setUser={setUser} /> */}
+      {/* {user ? (
+        <Searchbar user={user} setUser={setUser} />
+      ) : (
+        <Navigate to="/" />
+      )} */}
       <Routes>
         <Route
           path="/"
@@ -49,6 +55,10 @@ function App() {
               <Navigate to="/login" />
             )
           }
+        />
+        <Route
+          path="/"
+          element={user ? <Searchbar user={user} /> : <Navigate to="/login" />}
         />
         <Route
           path="/login"
@@ -75,7 +85,8 @@ function App() {
           }
         />
       </Routes>
-      <Footer />
+
+      {/* {user ? <Footer /> : <Navigate to="/" />} */}
     </div>
   );
 }
