@@ -15,7 +15,7 @@ export default function Login({ setUser }) {
     setIsLoading(true);
     setError(null);
 
-    const response = await fetch(url1 + "/Users/login", {
+    const response = await fetch(url2 + "/Users/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

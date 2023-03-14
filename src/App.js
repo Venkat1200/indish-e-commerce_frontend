@@ -85,8 +85,6 @@ function App() {
           }
         />
       </Routes>
-
-      {/* {user ? <Footer /> : <Navigate to="/" />} */}
     </div>
   );
 }
