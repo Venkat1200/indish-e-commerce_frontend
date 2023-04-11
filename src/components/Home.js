@@ -18,7 +18,7 @@ export default function Home({ user, selectedCategory, category }) {
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await fetch(url2 + "/articles", {
+        const res = await fetch(url1 + "/articles", {
           headers: {
             Authorization: `Bearer ${user.token}`,
           },
