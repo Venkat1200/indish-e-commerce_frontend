@@ -15,41 +15,43 @@ export default function Home({ user, selectedCategory, category }) {
   const url1 = "https://indish-e-commerce.onrender.com";
   const url2 = "http://localhost:3000";
 
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const res = await fetch(url1 + "/articles", {
-          headers: {
-            Authorization: `Bearer ${user.token}`,
-          },
-        });
+  const getData = async () => {
+    try {
+      const res = await fetch(url2 + "/articles", {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      });
 
-        const data = await res.json();
-        setAllArticles(data);
-        console.log("Articles", allArticles);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getData();
-  }, []);
-
-  const filterByCategory = (filteredData) => {
-    if (!category) {
-      console.log("THERE IS NO CATEGORY");
-      return filteredData;
+      const data = await res.json();
+      console.log("data", data);
+      setAllArticles(data);
+      console.log("Articles", allArticles);
+    } catch (error) {
+      console.log(error);
     }
-    console.log("THE CATEGORY IS: ", category);
-    const filteredArticles = filteredData.filter(
-      (article) => article.category === category
-    );
-    return filteredArticles;
   };
+
+  useEffect(() => {
+    getData();
+  }, [user.token]);
+
+  const filterByCategory = React.useCallback(
+    (filteredData) => {
+      if (!category) {
+        console.log("THERE IS NO CATEGORY");
+        return filteredData;
+      }
+      console.log("THE CATEGORY IS: ", category);
+      return filteredData.filter((article) => article.category === category);
+    },
+    [category]
+  );
 
   useEffect(() => {
     let filteredArticles = filterByCategory(allArticles);
     setFilteredArticles(filteredArticles);
-  }, [category, filteredArticles]);
+  }, [category, allArticles, filterByCategory]);
 
   return (
     <div className="home-container">
@@ -62,7 +64,7 @@ export default function Home({ user, selectedCategory, category }) {
                 <img className="article-photo" src={article.url} />
                 <center>
                   <div className="article-title">
-                    <h4 className="article.h2">{article.articleTitle}</h4>
+                    <h4 className="article-h2">{article.articleTitle}</h4>
                   </div>
                 </center>
                 <p className="article-p">$ {article.price}.00</p>
